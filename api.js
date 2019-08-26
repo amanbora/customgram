@@ -1,6 +1,8 @@
 var express = require('express');
 var app = express();
 var insta = require('instagram-node').instagram;
+var pathRoutes = require('./api/routes/path');
+
 
 //static files(css, js)
 app.use(express.static(__dirname+'/public'));
@@ -13,5 +15,5 @@ insta.use({
     client_secret : ' bfd6bfb3cfd54a518e67166c9bb16fef'
 });
 
-//redirect uri 
-var redirect = 'http://localhost:8080/handleAuth';
+
+app.use('/path',pathRoutes);
