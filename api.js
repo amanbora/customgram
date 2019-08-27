@@ -1,6 +1,6 @@
 var express = require('express');
 var app = express();
-var insta = require('instagram-node').instagram;
+var insta = require('instagram-node').instagram();
 var pathRoutes = require('./api/routes/path');
 
 
@@ -16,6 +16,8 @@ insta.use({
 });
 
 
-app.use('/path',pathRoutes);
+app.use('/',pathRoutes);
 
-app.listen(8080);
+app.listen(8080,(){
+    console.log("listening at port 8080");
+});

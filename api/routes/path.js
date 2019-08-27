@@ -23,7 +23,7 @@ router.get('/',function(req,res){
             access_token : accessToken
         });
 
-        insta.user_media_recent('access_token.split('.')[0]', function(err,result,pagination,remaining,limit){
+        insta.user_media_recent(access_token.split('.')[0], function(err, result, pagination, remaining, limit) {
             if(err)res.json(err);
 
             //pass the json to ejs template
