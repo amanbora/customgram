@@ -4,8 +4,8 @@ var accessToken;
 
 
 insta.use({
-    client_id : ' c8e249694daa489d9f2e9b81ee300f90',
-    client_secret : ' bfd6bfb3cfd54a518e67166c9bb16fef'
+    client_id : 'c8e249694daa489d9f2e9b81ee300f90',
+    client_secret : 'bfd6bfb3cfd54a518e67166c9bb16fef'
 });
 
 
@@ -39,7 +39,7 @@ router.get('/',function(req,res){
             if(err)res.json(err);
 
             //pass the json to ejs template
-            res.render('pages/index',{instagram : result});
+            res.render('index',{instagram : result});
 
         });
 });
