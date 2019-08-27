@@ -17,5 +17,3 @@ insta.use({
 
 
 app.use('/path',pathRoutes);
-
-app.listen(8080);
