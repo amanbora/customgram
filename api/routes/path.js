@@ -17,6 +17,7 @@ router.get('/authorize', function(req,res){
     res.redirect(insta.get_authorization_url(redirectUri, {scope : ['public_content','likes']}));
 })
 
+
 router.get('/handleAuth',function(req,res){
     //retrieves the code that was passed along as a query to the '/handleAuth' route and uses this code to construct an access token
     insta.authorize_user(req.query.code,redirectUri,  function(err,result){
