@@ -1,6 +1,6 @@
 const router = require('express').Router();
 var insta = require('instagram-node').instagram();
-var accessToken;
+var accessToken='';
 
 
 insta.use({
@@ -10,11 +10,11 @@ insta.use({
 
 
 //redirect uri 
-var redirectUri = 'http://localhost:8080/handleAuth';
+var redirectUri = 'http://localhost:8080/path/handleAuth';
 
 
 router.get('/authorize', function(req,res){
-    res.redirect(insta.get_authorization_url(redirectUri, {scope : ['public_content','likes']}));
+    res.redirect(insta.get_authorization_url(redirectUri));
 })
 
 
@@ -23,23 +23,25 @@ router.get('/handleAuth',function(req,res){
     insta.authorize_user(req.query.code,redirectUri,  function(err,result){
         if(err)res.send(err);
         // store this access_token in a global variable called accessToken
-      
+        
         accessToken=result.access_token;
-        res.redirect('/');
+        
+        res.redirect('/path');
     
     });
-})
+});
 
 router.get('/',function(req,res){
         insta.use({
             access_token: accessToken
+            
         });
 
-        insta.user_media_recent(access_token.split('.')[0], function(err, result, pagination, remaining, limit) {
+        insta.user_media_recent(accessToken.split('.')[0], function(err, result, pagination, remaining, limit) {
             if(err)res.json(err);
 
             //pass the json to ejs template
-            res.render('index',{instagram : result});
+            res.render('pages/index',{instagram : result});
 
         });
 });
