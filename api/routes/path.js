@@ -33,8 +33,15 @@ router.get('/handleAuth',function(req,res){
 });
 
 router.get('/',function(req,res){
+    res.render('pages/menu');
+
+});
+
+
+
+router.get('/profile',function(req,res){
         insta.use({
-            access_token: accessToken
+            access_token : accessToken
             
         });
 
@@ -42,7 +49,7 @@ router.get('/',function(req,res){
             if(err)res.json(err);
 
             //pass the json to ejs template
-            res.render('pages/index',{instagram : result});
+            res.render('pages/profile',{instagram : result});
 
         });
 });
