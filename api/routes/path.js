@@ -1,16 +1,17 @@
 const router = require('express').Router();
 var insta = require('instagram-node').instagram();
+var keys = require('../../keys');
 var accessToken='';
 
 
 insta.use({
-    client_id : 'c8e249694daa489d9f2e9b81ee300f90',
-    client_secret : 'bfd6bfb3cfd54a518e67166c9bb16fef'
+    client_id : keys.instagram.client_id,
+    client_secret : keys.instagram.client_secret
 });
 
 
 //redirect uri 
-var redirectUri = 'http://localhost:8080/path/handleAuth';
+var redirectUri = keys.urls.redirecturi;
 
 
 router.get('/authorize', function(req,res){
