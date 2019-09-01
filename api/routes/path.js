@@ -54,6 +54,11 @@ router.get('/profile',function(req,res){
         });
 });
 
+router.get('/like',function(req,res){
+    res.render('pages/like');
+
+})
+
 
 
 module.exports = router;
