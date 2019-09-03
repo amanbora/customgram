@@ -9,7 +9,7 @@ window.onload = function(){
         console.log(name.value);
         if(name.value.length<1)
             alert("Username can't be void");
-
+        else module.exports = name;
     }
 
    

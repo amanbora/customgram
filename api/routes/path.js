@@ -1,6 +1,7 @@
 const router = require('express').Router();
 var insta = require('instagram-node').instagram();
 var keys = require('./../../keys');
+var name = require('../../public/js/like');
 var accessToken='';
 
 
