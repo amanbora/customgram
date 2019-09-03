@@ -58,6 +58,9 @@ router.get('/profile',function(req,res){
 router.get('/like',function(req,res){
     res.render('pages/like');
 
+    if(name.)
+    console.log("path"+name);
+
 })
 
 
