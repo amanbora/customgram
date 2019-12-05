@@ -1,5 +1,10 @@
-<script src="/public/js/like.js" type="text/javascript"></script>
-<p>Enter username to like all posts :</p>
- <input type="text" id="username">
- <button id="getButton">Enter</button>
+<body>
+    <p>Enter username to like all posts :</p>
+
+    <form method="post" action="/path/user">
+        <input type="text" id="username" name="username">  
+        <button type="submit">Go</button>
+    </form>
+    
+</body>
 

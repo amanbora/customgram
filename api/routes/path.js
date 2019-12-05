@@ -1,7 +1,6 @@
 const router = require('express').Router();
 var insta = require('instagram-node').instagram();
 var keys = require('./../../keys');
-var name = require('../../public/js/like');
 var accessToken='';
 
 
@@ -39,8 +38,14 @@ router.get('/',function(req,res){
 });
 
 
+router.post('/user', (req,res) => {
+    console.log(`11111111 ${req.body.username}`);
+       
+});
 
 router.get('/profile',function(req,res){
+        console.log(`11111111 ${req.body.username}`);
+       
         insta.use({
             access_token : accessToken
             
@@ -57,9 +62,11 @@ router.get('/profile',function(req,res){
 
 router.get('/like',function(req,res){
     res.render('pages/like');
+    // console.log(`11111111 ${req.body.username}`);
+    // var username = req.body.username;
 
-    if(name.)
-    console.log("path"+name);
+    // if(username)
+    //     console.log("path"+username);
 
 })
 
